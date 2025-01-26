@@ -11,8 +11,8 @@ title = "paper_reading"
 # [preprocessor.reading-time]
 
 [output.html]
-git-repository-url = "https://github.com/Quaternijkon/paper"
-edit-url-template = "https://github.com/Quaternijkon/paper/edit/main/{path}"
+# git-repository-url = "https://github.com/Quaternijkon/paper"
+# edit-url-template = "https://github.com/Quaternijkon/paper/edit/main/{path}"
 # additional-css = ["config/whichlang.css","theme/pagetoc.css"]
 # additional-js = ["config/whichlang.js","theme/pagetoc.js"]
 
