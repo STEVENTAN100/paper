@@ -57,4 +57,5 @@ mdbook serve
 5. 之后本地修改内容后push到仓库，Github Actions会自动构建并部署。访问`https://<username>.github.io/<reponame>/`即可查看。
 
 ## 参考
-- [文档](https://rust-lang.github.io/mdBook/)
+- [安装Rust](https://www.rust-lang.org/tools/install)
+- [mdbook文档](https://rust-lang.github.io/mdBook/)
