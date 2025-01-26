@@ -1,0 +1,6 @@
+[book]
+authors = ["Quaternijkon"]
+language = "en"
+multilingual = false
+src = "src"
+title = "paper_reading"
