@@ -1,5 +1,5 @@
-[rust]
-edition = "2021"
+# [rust]
+# edition = "2021"
 
 [book]
 authors = ["Quaternijkon"]
@@ -8,7 +8,7 @@ multilingual = false
 src = "src"
 title = "paper_reading"
 
-[preprocessor.reading-time]
+# [preprocessor.reading-time]
 
 [output.html]
 git-repository-url = "https://github.com/Quaternijkon/paper"
