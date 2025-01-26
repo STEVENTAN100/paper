@@ -35,7 +35,7 @@ cargo install mdbook
 ```bash
 mdbook init paper
 ```
-- 是否需要`。gitignore`文件：`y`
+- 是否需要`.gitignore`文件：`y`
 - 输入项目名称：`paper`（后续可在`book.toml`中更改）
 
 ### 构建mdbook
