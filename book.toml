@@ -4,7 +4,7 @@
 [book]
 authors = ["Quaternijkon"]
 language = "zh-CN"
-multilingual = false
+# multilingual = false
 src = "src"
 title = "paper_reading"
 
@@ -15,4 +15,8 @@ git-repository-url = "https://github.com/Quaternijkon/paper"
 edit-url-template = "https://github.com/Quaternijkon/paper/edit/main/{path}"
 # additional-css = ["config/whichlang.css","theme/pagetoc.css"]
 # additional-js = ["config/whichlang.js","theme/pagetoc.js"]
+
+[output.html.fold]
+enable = true
+level = 0
 
