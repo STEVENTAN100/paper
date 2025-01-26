@@ -8,6 +8,8 @@ title = "paper_reading"
 # [preprocessor.reading-time]
 
 [output.html]
+additional-css = ["theme/style.css"]
+additional-js = ["assets/custom.js", "assets/bigPicture.js"]
 git-repository-url = "https://github.com/Quaternijkon/paper"
 edit-url-template = "https://github.com/Quaternijkon/paper/edit/main/{path}"
 
