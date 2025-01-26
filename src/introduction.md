@@ -36,7 +36,7 @@ cargo install mdbook
 mdbook init paper
 ```
 - 是否需要`.gitignore`文件：`y`
-- 输入项目名称：`paper`（后续可在`book.toml`中更改）
+- 输入项目名称：`paper_reading`（后续可在`book.toml`中更改）
 
 ### 构建mdbook
 在`/paper`目录下执行：
@@ -53,5 +53,8 @@ mdbook serve
 1. 新建Github仓库，将项目上传至仓库。
 2. 在顶栏目录中找到`Actions`，搜索`mdbook`，点击`Configure`，自动生成`.yml`文件。点击`Commit Changes`提交。
 3. 在顶栏目录中找到`Settings`，在侧边栏中找到`Pages`，在`Build and deployment`下找到`Source`，选择`Github Actions`。
-4. 第二步会在`/paper`下创建`./.github/workflows/mdbook.yml`文件，在本地在pull更改。
-5. 之后本地修改后push到仓库，Github Actions会自动构建并部署。访问`https://<username>.github.io/<reponame>/`即可查看。
+4. 第二步会在`/paper`下创建`./.github/workflows/mdbook.yml`文件，在本地pull更改。
+5. 之后本地修改内容后push到仓库，Github Actions会自动构建并部署。访问`https://<username>.github.io/<reponame>/`即可查看。
+
+## 参考
+- [文档](https://rust-lang.github.io/mdBook/)
