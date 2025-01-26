@@ -1,6 +1,11 @@
+[rust]
+edition = "2021" 
+
 [book]
 authors = ["Quaternijkon"]
-language = "en"
+language = "zh-CN"
 multilingual = false
 src = "src"
 title = "paper_reading"
+
+[preprocessor.reading-time]
