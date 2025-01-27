@@ -2,6 +2,10 @@
 
 [Characterizing the Dilemma of Performance and Index Size in Billion-Scale Vector  Search and Breaking It with Second-Tier Memory](https://arxiv.org/abs/2405.03267)
 
+全文字数：**{{ #word_count }}**
+
+阅读时间：**{{ #reading_time }}**
+
 ## Background
 
 **Second-tier memory** (such as remote DRAM/NVM connected via RDMA or CXL), with its fine-grained access granularity, offers an effective solution to address **the mismatch between search and access granularity**.

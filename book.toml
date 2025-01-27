@@ -5,7 +5,7 @@ language = "zh-CN"
 src = "src"
 title = "paper_reading"
 
-# [preprocessor.reading-time]
+[preprocessor.reading-time]
 
 [output.html]
 additional-css = ["theme/style.css", "./mdbook-admonish.css"]
