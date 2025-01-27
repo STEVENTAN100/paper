@@ -40,6 +40,9 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: download dependency
+        run: |
+          cargo install mdbook-reading-time
       - name: Build with mdBook
         run: mdbook build
       - name: Upload artifact
