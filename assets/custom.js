@@ -136,10 +136,10 @@ var initAll = function () {
     script.src = "https://giscus.app/client.js";
     script.async = true;
     script.crossOrigin = "anonymous";
-    script.setAttribute("data-repo", "sunface/rust-course");
-    script.setAttribute("data-repo-id", "MDEwOlJlcG9zaXRvcnkxNDM4MjIwNjk=");
-    script.setAttribute("data-category", "章节评论区");
-    script.setAttribute("data-category-id", "DIC_kwDOCJKM9c4COQcP");
+    script.setAttribute("data-repo", "Quaternijkon/paper");
+    script.setAttribute("data-repo-id", "R_kgDONvv6PA");
+    script.setAttribute("data-category", "Q&A");
+    script.setAttribute("data-category-id", "DIC_kwDONvv6PM4CmXDO");
     script.setAttribute("data-mapping", "specific");
     script.setAttribute("data-term", pagePath);
     script.setAttribute("data-reactions-enabled", "1");
