@@ -8,7 +8,7 @@ title = "paper_reading"
 # [preprocessor.reading-time]
 
 [output.html]
-additional-css = ["theme/style.css"]
+additional-css = ["theme/style.css", "./mdbook-admonish.css"]
 additional-js = ["assets/custom.js", "assets/bigPicture.js"]
 git-repository-url = "https://github.com/Quaternijkon/paper"
 edit-url-template = "https://github.com/Quaternijkon/paper/edit/main/{path}"
@@ -16,3 +16,9 @@ edit-url-template = "https://github.com/Quaternijkon/paper/edit/main/{path}"
 [output.html.fold]
 enable = true
 level = 0
+
+[preprocessor]
+
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "3.0.2" # do not edit: managed by `mdbook-admonish install`

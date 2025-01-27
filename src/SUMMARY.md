@@ -2,10 +2,10 @@
 
 [Introduction](./introduction.md)
 
-# Vector Database
+# vector db
 
-- [Chapter 1](./chapter_1.md)
-
-- [Chapter 2]()
+- [vector db](./vector_db/README.md)
+    - [Second-Tier Memory](./vector_db/Second-Tier_Memory.md)
+    - [Chapter 2]()
 
 --- 
