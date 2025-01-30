@@ -6,6 +6,7 @@
 
 - [vector db](./vector_db/README.md)
     - [Second-Tier Memory](./vector_db/Second-Tier_Memory.md)
-    - [Chapter 2]()
+    - [HNSW](./vector_db/HNSW.md)
+    - [HM-ANN](./vector_db/HM-ANN.md)
 
 --- 

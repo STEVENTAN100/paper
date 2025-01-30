@@ -2,9 +2,9 @@
 
 [Characterizing the Dilemma of Performance and Index Size in Billion-Scale Vector  Search and Breaking It with Second-Tier Memory](https://arxiv.org/abs/2405.03267)
 
-全文字数：**{{ #word_count }}**
+Total Words: **{{ #word_count }}**
 
-阅读时间：**{{ #reading_time }}**
+Estimated Time: **{{ #reading_time }}**
 
 ## Background
 
@@ -69,3 +69,13 @@ Empirically, increasing the index size can still improve throughput.
 - Cluster index requires irregular I/O for deduplication.instead of storing replicated vector data in other clusters, we store an address pointing to the original cluster. the vector address(8 B) is significantly smaller than the data(128–384 B). However, it implies that each replicated vector requires a separate small random read(100–384 B) to fetch the original vector. 
 
 ## Power of Second-tier Memory
+
+- Fine-grained block sizes
+    - utilize the device bandwidth more efficiently
+- Robust to irregular I/O
+    - replace (some) sequential accesses with random accesses
+
+## Improvement
+
+### Graph Index
+
