@@ -1,7 +1,5 @@
 # Characterizing the Dilemma of Performance and Index Size in Billion-Scale Vector  Search and Breaking It with Second-Tier Memory
 
-[Characterizing the Dilemma of Performance and Index Size in Billion-Scale Vector  Search and Breaking It with Second-Tier Memory](https://arxiv.org/abs/2405.03267)
-
 全文字数: **{{ #word_count }}**
 
 阅读时间: **{{ #reading_time }}**
@@ -184,5 +182,4 @@ $$ \text{min} \sum_{j}^{|C|} h_j \cdot \left(1 + \sum_{i}^{|V|} P_{i,j}\right) $
 ## Conclusion
 Second-tier memory is a promising storage medium for vector indexes.
 
-
-
+> [Characterizing the Dilemma of Performance and Index Size in Billion-Scale Vector  Search and Breaking It with Second-Tier Memory](https://arxiv.org/abs/2405.03267)

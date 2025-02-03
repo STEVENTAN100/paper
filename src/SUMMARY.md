@@ -8,6 +8,8 @@
     - [Second-Tier Memory](./vector_db/Second-Tier_Memory.md)
     - [HNSW]()
     - [HMANN]()
+    - [DiskANN](./vector_db/DiskANN.md)
+    - [SPANN](./vector_db/SPANN.md)
 
 <!-- # Faiss -->
 
