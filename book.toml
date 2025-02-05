@@ -6,7 +6,7 @@ src = "src"
 title = ""
 
 [preprocessor.reading-time]
-words-per-minute = 120
+words-per-minute = 160
 
 [output.html]
 additional-css = ["theme/style.css", "./mdbook-admonish.css"]
@@ -26,3 +26,5 @@ assets_version = "3.0.2" # do not edit: managed by `mdbook-admonish install`
 
 [preprocessor.katex]
 after = ["links"]
+block-delimiter = { left = "\\[", right = "\\]" }
+inline-delimiter = { left = "\\(", right = "\\)" }
