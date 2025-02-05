@@ -43,6 +43,7 @@ jobs:
       - name: download dependency
         run: |
           cargo install mdbook-reading-time
+          cargo install mdbook-katex
       - name: Build with mdBook
         run: mdbook build
       - name: Upload artifact
