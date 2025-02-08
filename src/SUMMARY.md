@@ -15,6 +15,7 @@
 <!-- # Faiss -->
 
 - [Faiss](./faiss/README.md)
-  - [Introduction](./faiss/Introduction.md)
+  <!-- - [Introduction](./faiss/Introduction.md) -->
+  - [Getting Started](./faiss/Getting_Started.md)
 
 ---
