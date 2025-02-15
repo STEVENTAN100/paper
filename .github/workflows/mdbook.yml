@@ -44,6 +44,7 @@ jobs:
         run: |
           cargo install mdbook-reading-time
           cargo install mdbook-katex
+          cargo install mdbook-admonish
       - name: Build with mdBook
         run: mdbook build
       - name: Upload artifact
