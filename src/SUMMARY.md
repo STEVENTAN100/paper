@@ -20,4 +20,9 @@
   - [Getting Started](./faiss/Getting_Started.md)
   - [Basics](./faiss/Basics.md)
 
+- [Project](./project/README.md)
+  - [DiskANN](./project/DiskANN/DiskANN.md)
+  - [Faiss](./project/Faiss/Faiss.md)
+    - [bench](./project/Faiss/bench.md)
+
 ---
