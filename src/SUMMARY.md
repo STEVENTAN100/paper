@@ -24,5 +24,6 @@
   - [DiskANN](./project/DiskANN/DiskANN.md)
   - [Faiss](./project/Faiss/Faiss.md)
     - [bench](./project/Faiss/bench.md)
+  - [hnswlib](./project/hnswlib/hnswlib.md)
 
 ---
