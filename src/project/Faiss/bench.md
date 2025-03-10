@@ -288,9 +288,6 @@
     search_L 64        0.015 ms per query, R@1 0.9832, missing rate 0.0000
     search_L 128       0.027 ms per query, R@1 0.9959, missing rate 0.0000
     search_L 256       0.050 ms per query, R@1 0.9994, missing rate 0.0000
-    
-
-
 ```
 
 ### 运行结果（WSL）
@@ -307,7 +304,6 @@
 | efSearch=64 (unbounded)| 28,095.8          | 0.041                   | 0.9868  | 0.0000     |
 | efSearch=128 (bounded) | 28,095.8          | 0.069                   | 0.9964  | 0.0000     |
 | efSearch=256 (bounded) | 28,095.8          | 0.126                   | 0.9995  | 0.0000     |
-
 
 - **搜索效率与召回率正相关**：`efSearch` 值越大，搜索时间增加，但召回率显著提升（如 `efSearch=256` 时 R@1 达 0.9995）。
 - **队列类型影响小**：`bounded` 与 `unbounded` 队列对搜索性能无明显差异。
@@ -365,7 +361,116 @@
    - 需要高 `nprobe` 达到高召回率，但搜索效率较低。
 3. **NSG Flat**：  
    - 在搜索速度与召回率间取得最佳平衡（`search_L=256` 时 R@1=0.9993，搜索时间仅 0.086 ms）。
- 
+
 - 实时搜索：优先选择 **HNSW SQ** 或 **NSG Flat**；  
 - 高精度需求：选择 **HNSW Flat** 或 **NSG Flat**；  
 - 快速构建：选择 **HNSW SQ**。
+
+```admonish success collapsible=true, title='实验输出'
+    (faiss_env) root@Quaternijkon:~/faiss/benchs# python bench_hnsw.py 10
+    load data
+    Testing HNSW Flat
+    add
+    hnsw_add_vertices: adding 1000000 elements on top of 0 (preset_levels=0)
+      max_level = 4
+    Adding 1 elements at level 4
+    Adding 26 elements at level 3
+    Adding 951 elements at level 2
+    Adding 30276 elements at level 1
+    Adding 968746 elements at level 0
+    Done in 28095.800 ms
+    search
+    efSearch 16 bounded queue True     0.015 ms per query, R@1 0.9069, missing rate 0.0000
+    efSearch 16 bounded queue False            0.015 ms per query, R@1 0.9069, missing rate 0.0000
+    efSearch 32 bounded queue True     0.023 ms per query, R@1 0.9614, missing rate 0.0000
+    efSearch 32 bounded queue False            0.025 ms per query, R@1 0.9614, missing rate 0.0000
+    efSearch 64 bounded queue True     0.043 ms per query, R@1 0.9868, missing rate 0.0000
+    efSearch 64 bounded queue False            0.041 ms per query, R@1 0.9868, missing rate 0.0000
+    efSearch 128 bounded queue True            0.069 ms per query, R@1 0.9964, missing rate 0.0000
+    efSearch 128 bounded queue False           0.069 ms per query, R@1 0.9964, missing rate 0.0000
+    efSearch 256 bounded queue True            0.126 ms per query, R@1 0.9995, missing rate 0.0000
+    efSearch 256 bounded queue False           0.122 ms per query, R@1 0.9995, missing rate 0.0000
+    Testing HNSW with a scalar quantizer
+    training
+    add
+    hnsw_add_vertices: adding 1000000 elements on top of 0 (preset_levels=0)
+      max_level = 5
+    Adding 1 elements at level 5
+    Adding 15 elements at level 4
+    Adding 194 elements at level 3
+    Adding 3693 elements at level 2
+    Adding 58500 elements at level 1
+    Adding 937597 elements at level 0
+    Done in 12376.822 ms
+    search
+    efSearch 16        0.007 ms per query, R@1 0.7884, missing rate 0.0000
+    efSearch 32        0.011 ms per query, R@1 0.8827, missing rate 0.0000
+    efSearch 64        0.020 ms per query, R@1 0.9419, missing rate 0.0000
+    efSearch 128       0.033 ms per query, R@1 0.9751, missing rate 0.0000
+    efSearch 256       0.055 ms per query, R@1 0.9912, missing rate 0.0000
+    Testing IVF Flat (baseline)
+    training
+    Training level-1 quantizer
+    Training level-1 quantizer on 100000 vectors in 128D
+    Training IVF residual
+    IndexIVF: no residual training
+    add
+    IndexIVFFlat::add_core: added 1000000 / 1000000 vectors
+    search
+    nprobe 1           0.022 ms per query, R@1 0.4139, missing rate 0.0300
+    nprobe 4           0.018 ms per query, R@1 0.6368, missing rate 0.0000
+    nprobe 16          0.035 ms per query, R@1 0.8322, missing rate 0.0000
+    nprobe 64          0.103 ms per query, R@1 0.9562, missing rate 0.0000
+    nprobe 256         0.332 ms per query, R@1 0.9961, missing rate 0.0000
+    Testing IVF Flat with HNSW quantizer
+    training
+    Training level-1 quantizer
+    Training L2 quantizer on 100000 vectors in 128D
+    Adding centroids to quantizer
+    Training IVF residual
+    IndexIVF: no residual training
+    add
+    IndexIVFFlat::add_core: added 1000000 / 1000000 vectors
+    search
+    nprobe 1           0.009 ms per query, R@1 0.4102, missing rate 0.0323
+    nprobe 4           0.014 ms per query, R@1 0.6327, missing rate 0.0000
+    nprobe 16          0.030 ms per query, R@1 0.8288, missing rate 0.0000
+    nprobe 64          0.094 ms per query, R@1 0.9545, missing rate 0.0000
+    nprobe 256         0.332 ms per query, R@1 0.9925, missing rate 0.0000
+    Performing kmeans on sift1M database vectors (baseline)
+    Clustering 1000000 points in 128D to 16384 clusters, redo 1 times, 10 iterations
+      Preprocessing in 0.07 s
+      Iteration 0 (36.15 s, search 36.12 s): objective=5.58803e+10 imbalance=1.737 nsplit=5  Iteration 1 (71.32 s, search 71.25 s): objective=4.11771e+10 imbalance=1.378 nsplit=0  Iteration 2 (107.25 s, search 107.15 s): objective=3.9914e+10 imbalance=1.301 nsplit=  Iteration 3 (142.60 s, search 142.47 s): objective=3.93716e+10 imbalance=1.269 nsplit  Iteration 4 (178.17 s, search 178.01 s): objective=3.9066e+10 imbalance=1.253 nsplit=  Iteration 5 (214.30 s, search 214.11 s): objective=3.8872e+10 imbalance=1.243 nsplit=  Iteration 6 (250.13 s, search 249.92 s): objective=3.87377e+10 imbalance=1.237 nsplit  Iteration 7 (285.57 s, search 285.33 s): objective=3.86397e+10 imbalance=1.232 nsplit  Iteration 8 (321.46 s, search 321.19 s): objective=3.85653e+10 imbalance=1.229 nsplit  Iteration 9 (357.11 s, search 356.81 s): objective=3.8508e+10 imbalance=1.227 nsplit=0       
+    Performing kmeans on sift1M using HNSW assignment
+    Clustering 1000000 points in 128D to 16384 clusters, redo 1 times, 10 iterations
+      Preprocessing in 0.07 s
+      Iteration 0 (11.13 s, search 10.96 s): objective=5.58887e+10 imbalance=1.737 nsplit=0  Iteration 1 (21.37 s, search 21.07 s): objective=4.11817e+10 imbalance=1.379 nsplit=2  Iteration 2 (31.33 s, search 30.89 s): objective=3.99504e+10 imbalance=1.301 nsplit=0  Iteration 3 (41.08 s, search 40.47 s): objective=3.93767e+10 imbalance=1.269 nsplit=2  Iteration 4 (50.91 s, search 50.17 s): objective=3.90675e+10 imbalance=1.253 nsplit=1  Iteration 5 (60.60 s, search 59.72 s): objective=3.88936e+10 imbalance=1.243 nsplit=0  Iteration 6 (70.48 s, search 69.46 s): objective=3.87889e+10 imbalance=1.236 nsplit=0  Iteration 7 (80.54 s, search 79.37 s): objective=3.8648e+10 imbalance=1.232 nsplit=1   Iteration 8 (90.33 s, search 89.03 s): objective=3.85683e+10 imbalance=1.229 nsplit=3  Iteration 9 (100.14 s, search 98.69 s): objective=3.85264e+10 imbalance=1.227 nsplit=1       
+    Testing NSG Flat
+    add
+    IndexNSG::add 1000000 vectors
+      Build knn graph with NNdescent S=10 R=100 L=114 niter=10
+    Parameters: K=64, S=10, R=100, L=114, iter=10
+    Iter: 0, recall@64: 0.000000
+    Iter: 1, recall@64: 0.002969
+    Iter: 2, recall@64: 0.024531
+    Iter: 3, recall@64: 0.110781
+    Iter: 4, recall@64: 0.332656
+    Iter: 5, recall@64: 0.559375
+    Iter: 6, recall@64: 0.751094
+    Iter: 7, recall@64: 0.862188
+    Iter: 8, recall@64: 0.922656
+    Iter: 9, recall@64: 0.953906
+    Added 1000000 points into the index
+      Check the knn graph
+      nsg building
+    NSG::build R=32, L=64, C=132
+    Degree Statistics: Max = 32, Min = 1, Avg = 20.056442
+    Attached nodes: 0
+    search
+    search_L -1        0.008 ms per query, R@1 0.8152, missing rate 0.0000
+    search_L 16        0.011 ms per query, R@1 0.8849, missing rate 0.0000
+    search_L 32        0.017 ms per query, R@1 0.9528, missing rate 0.0000
+    search_L 64        0.032 ms per query, R@1 0.9843, missing rate 0.0000
+    search_L 128       0.051 ms per query, R@1 0.9959, missing rate 0.0000
+    search_L 256       0.086 ms per query, R@1 0.9993, missing rate 0.0000
+```
