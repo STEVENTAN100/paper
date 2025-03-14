@@ -26,11 +26,11 @@ jobs:
           mkdir mdbook
           curl -sSL $url | tar -xz --directory=./mdbook
           echo `pwd`/mdbook >> $GITHUB_PATH
-      - name: Install Dependencies
-        run: |
-          cargo install mdbook-reading-time
-          cargo install mdbook-katex
-          cargo install mdbook-admonish
+    #   - name: Install Dependencies
+    #     run: |
+    #       cargo install mdbook-reading-time
+    #       cargo install mdbook-katex
+    #       cargo install mdbook-admonish
       - name: Build Book
         run: |
           mdbook build
